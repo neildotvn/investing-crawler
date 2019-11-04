@@ -1,8 +1,7 @@
 from urllib.request import urlopen, Request
 import bs4 as bs
 from general import *
-import json
-import datetime
+import json, datetime, threading
 
 labels_arr = ['silver', 'copper', 'platinum', 'palladium',
               'crude oil wti', 'brent oil', 'natural gas',
@@ -63,5 +62,9 @@ def write_json(file_name, prices):
     write_file(file, json.dumps(prices))
 
 
-write_json('investing.json', crawl_from_investing(INVESTING_URL, labels_set))
+def start():
+    write_json('investing.json', crawl_from_investing(INVESTING_URL, labels_set))
+    threading.Timer(3, start).start()
 
+
+start()
