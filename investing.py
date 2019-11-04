@@ -13,7 +13,6 @@ for label in labels_arr:
     labels_set.add(label)
 INVESTING_URL = 'https://www.investing.com/commodities/real-time-futures'
 
-
 def crawl_from_investing(url, labels):
     prices = {}
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -64,5 +63,5 @@ def write_json(file_name, prices):
     write_file(file, json.dumps(prices))
 
 
-write_json(crawl_from_investing(INVESTING_URL, labels_set), 'investing.json')
+write_json('investing.json', crawl_from_investing(INVESTING_URL, labels_set))
 
