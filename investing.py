@@ -6,11 +6,12 @@ import json, datetime, threading
 labels_arr = ['silver', 'copper', 'platinum', 'palladium',
               'crude oil wti', 'brent oil', 'natural gas',
               'heating oil', 'london gas oil', 'us corn',
-              'us soybeans']
+              'us soybeans', "us soybean oil"]
 labels_set = set()
 for label in labels_arr:
     labels_set.add(label)
 INVESTING_URL = 'https://www.investing.com/commodities/real-time-futures'
+
 
 def crawl_from_investing(url, labels):
     prices = {}
