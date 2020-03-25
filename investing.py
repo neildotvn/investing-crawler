@@ -41,7 +41,6 @@ def crawl_from_investing(url, labels):
                     for i in range(4):
                         temp.append(parse_number(cells[i + 3].text.rstrip()))
                     temp.append(0)
-                    temp.append(0)
                     if '-' in cells[6].text:
                         temp.append(False)
                     else:
