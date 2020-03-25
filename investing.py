@@ -15,8 +15,7 @@ INVESTING_URL = 'https://www.investing.com/commodities/real-time-futures'
 
 def crawl_from_investing(url, labels):
     prices = {}
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) '
-                             'Chrome/41.0.2228.0 Safari/537.3'}
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11'}
     req = Request(url=url, headers=headers)
     try:
         html = urlopen(req)
@@ -47,7 +46,8 @@ def crawl_from_investing(url, labels):
                         temp.append(False)
                     else:
                         temp.append(True)
-                    temp[2], temp[4] = temp[4], temp[2]
+                    temp[3], temp[4] = temp[4], temp[3]
+                    temp[2], temp[3] = temp[3], temp[2]
                     temp_arr.append(temp)
 
                     prices[key.replace(' ', '_')] = {exchange: temp_arr}
