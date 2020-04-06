@@ -5,8 +5,8 @@ import json, datetime, threading
 
 labels_arr = ['silver', 'copper', 'platinum', 'palladium',
               'crude oil wti', 'brent oil', 'natural gas',
-              'heating oil', 'london gas oil', 'us corn',
-              'us soybeans', "us soybean oil"]
+              'heating oil', 'london gas oil', 'us wheat',
+              'us corn', 'us soybeans', "us soybean oil"]
 labels_set = set()
 for label in labels_arr:
     labels_set.add(label)
@@ -40,7 +40,9 @@ def crawl_from_investing(url, labels):
                     temp = [parse_date_from_investing(cells[2].text.rstrip())]
                     for i in range(4):
                         temp.append(parse_number(cells[i + 3].text.rstrip()))
-                    temp.append(0)
+                    temp.append("N/A")
+                    temp.append("N/A")
+                    temp.append("N/A")
                     if '-' in cells[6].text:
                         temp.append(False)
                     else:
