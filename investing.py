@@ -43,7 +43,7 @@ def crawl_from_investing(url, labels):
                     temp.append("N/A")
                     temp.append("N/A")
                     temp.append("N/A")
-                    if '-' in cells[6].text:
+                    if '-' in cells[8].text:
                         temp.append(False)
                     else:
                         temp.append(True)
