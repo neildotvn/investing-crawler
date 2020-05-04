@@ -42,8 +42,7 @@ def crawl_from_investing(url, labels):
                         temp.append(parse_number(cells[i + 3].text.rstrip()))
                     temp.append("N/A")
                     temp.append("N/A")
-                    temp.append("N/A")
-                    if '-' in cells[8].text:
+                    if '-' in cells[6].text:
                         temp.append(False)
                     else:
                         temp.append(True)
@@ -54,6 +53,7 @@ def crawl_from_investing(url, labels):
                     prices[key.replace(' ', '_')] = {exchange: temp_arr}
 
         print('At ' + str(datetime.datetime.now()) + ' successfully crawled from ' + INVESTING_URL)
+        print(cells[6].text)
         return prices
     except Exception as exception:
         print(exception)
